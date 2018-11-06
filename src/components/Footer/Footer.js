@@ -3,7 +3,7 @@ import React from 'react'
 
 import './footer.css'
 
-const books = {
+const b = {
   old: [
     "Gênesis",
     "Êxodo",
@@ -76,10 +76,12 @@ const books = {
   ],
 };
 
+import books from '../../data/books'
+
 const Footer = () => (
   <footer className="footer">
     <div className="container">
-      <section class="sitemap-links">
+      <section className="sitemap-links">
         <h2>Bíblia Online</h2>
         <ul>
           <li><a href="/">Homepage</a></li>
@@ -92,9 +94,9 @@ const Footer = () => (
         <div className="book-column">
           <h2>Velho Testamento</h2>
           <ul>
-            {books.old.map((book) => {
+            {books.filter((i, k) => k <= 38 ).map((book, index) => {
               return (
-                <li><a>{book}</a></li>
+                <li key={index}><a>{book.name}</a></li>
               )
             })}
           </ul>
@@ -102,9 +104,9 @@ const Footer = () => (
         <div className="book-column">
           <h2>Novo Testamento</h2>
           <ul>
-            {books.new.map((book) => {
+            {books.filter((i, k) => k > 38 ).map((book, index) => {
               return (
-                <li><a>{book}</a></li>
+                <li key={index}><a>{book.name}</a></li>
               )
             })}
           </ul>
