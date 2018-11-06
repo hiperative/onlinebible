@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@material-ui/core": "^3.4.0",
+    "@material-ui/icons": "^3.0.1",
     "apollo-datasource-rest": "^0.1.5",
     "apollo-server-lambda": "^2.1.0",
     "crypto": "^1.0.1",
