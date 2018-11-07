@@ -1,7 +1,10 @@
 import React from 'react'
 // import { Link } from 'gatsby'
 
+import books from '../../data/books'
+
 import './footer.css'
+
 
 const b = {
   old: [
@@ -75,8 +78,6 @@ const b = {
     "Apocalipse",
   ],
 };
-
-import books from '../../data/books'
 
 const Footer = () => (
   <footer className="footer">
