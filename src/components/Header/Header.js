@@ -1,17 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import { fade } from '@material-ui/core/styles/colorManipulator';
-import { withStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-
-const styles = theme => ({
+const styles = {
   root: {
     width: '100%',
   },
@@ -24,26 +14,26 @@ const styles = theme => ({
   },
   title: {
     display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
+    // [theme.breakpoints.up('sm')]: {
+    //   display: 'block',
+    // },
   },
   search: {
     position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
+    // borderRadius: theme.shape.borderRadius,
+    // backgroundColor: fade(theme.palette.common.white, 0.15),
+    // '&:hover': {
+    //   backgroundColor: fade(theme.palette.common.white, 0.25),
+    // },
     marginLeft: 0,
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing.unit,
-      width: 'auto',
-    },
+    // [theme.breakpoints.up('sm')]: {
+    //   marginLeft: theme.spacing.unit,
+    //   width: 'auto',
+    // },
   },
   searchIcon: {
-    width: theme.spacing.unit * 9,
+    // width: theme.spacing.unit * 9,
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
@@ -56,46 +46,46 @@ const styles = theme => ({
     width: '100%',
   },
   inputInput: {
-    paddingTop: theme.spacing.unit,
-    paddingRight: theme.spacing.unit,
-    paddingBottom: theme.spacing.unit,
-    paddingLeft: theme.spacing.unit * 10,
-    transition: theme.transitions.create('width'),
+    // paddingTop: theme.spacing.unit,
+    // paddingRight: theme.spacing.unit,
+    // paddingBottom: theme.spacing.unit,
+    // paddingLeft: theme.spacing.unit * 10,
+    // transition: theme.transitions.create('width'),
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: 120,
-      '&:focus': {
-        width: 200,
-      },
-    },
+    // [theme.breakpoints.up('sm')]: {
+    //   width: 120,
+    //   '&:focus': {
+    //     width: 200,
+    //   },
+    // },
   },
-});
+};
 
-const Header = ({ siteTitle, classes }) => (
-  <AppBar position="static" className={classes.root}>
-    <Toolbar>
-      <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
-        <MenuIcon />
-      </IconButton>
-      <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-        {siteTitle}
-      </Typography>
-      <div className={classes.grow} />
-      <div className={classes.search}>
-        <div className={classes.searchIcon}>
-          <SearchIcon />
+const Header = ({ siteTitle }) => (
+  <header position="static" className={styles.root}>
+    <div>
+      <div className={styles.menuButton} color="inherit" aria-label="Open drawer">
+        <div />
+      </div>
+      <div className={styles.title} variant="h6" color="inherit">
+        <Link to="/">{siteTitle}</Link>
+      </div>
+      <div className={styles.grow} />
+      <div className={styles.search}>
+        <div className={styles.searchIcon}>
+          <div />
         </div>
-        <InputBase
+        <input
           placeholder="Search…"
-          classes={{
-            root: classes.inputRoot,
-            input: classes.inputInput,
+          styles={{
+            root: styles.inputRoot,
+            input: styles.inputInput,
           }}
         />
       </div>
-    </Toolbar>
-  </AppBar>
+    </div>
+  </header>
 )
 
 // export default Header
-export default withStyles(styles)(Header);
+export default Header

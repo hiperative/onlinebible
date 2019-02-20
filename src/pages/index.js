@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 
-import Grid from '@material-ui/core/Grid';
+import { Container, Row, Col } from '../components/Grid';
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout/Layout'
 import Passage from '../components/Passage/Passage'
 
 // Verse of the day, old/new testment
@@ -33,19 +33,24 @@ const passages = [
 ]
 
 const IndexPage = () => (
-  <Layout>
-    <Grid container spacing={16}>
-      <Grid item xs={8}>
-        <h1>Versículos del día</h1>
-        {passages.map((passage, index) => (
-          <Passage
-            key={index}
-            passage={passage}
-          />
-        ))}
-        {/* <Link to="/page-2/">Go to page 2</Link> */}
-      </Grid>
-    </Grid>
+  <Layout includeFooter>
+    <Container>
+      <Row>
+        <Col xs={12} md={8}>
+          <h1>Versículos del día</h1>
+          {passages.map((passage, index) => (
+            <Passage
+              key={index}
+              passage={passage}
+            />
+          ))}
+          {/* <Link to="/page-2/">Go to page 2</Link> */}
+        </Col>
+        <Col md={4} className="hide show-md" style={{ background: '#abc' }}>
+          <h4>Adds?</h4>
+        </Col>
+      </Row>
+    </Container>
   </Layout>
 )
 
