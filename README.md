@@ -93,6 +93,9 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
   
   13.  **`yarn.lock`**: [Yarn](https://yarnpkg.com/) is a package manager alternative to npm. You can use either yarn or npm, though all of the Gatsby docs reference npm.  This file serves essentially the same purpose as `package-lock.json`, just for a different package management system.
 
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhiperative%2Fonlinebible.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhiperative%2Fonlinebible?ref=badge_large)
+
 ## 🎓 Learning Gatsby
 
 Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
@@ -104,3 +107,4 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 ## 💫 Deploy
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhiperative%2Fonlinebible.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhiperative%2Fonlinebible?ref=badge_shield)
