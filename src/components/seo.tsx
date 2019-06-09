@@ -11,67 +11,61 @@ interface SEOProps {
 }
 
 // tslint:disable: object-literal-sort-keys
-const SEO: React.FunctionComponent<SEOProps> = ({
-  description,
-  lang,
-  meta,
-  keywords,
-  title
-}) => (
+const SEO: React.FunctionComponent<SEOProps> = ({ description, lang, meta, keywords, title }) => (
   <StaticQuery
     query={detailsQuery}
-    render={data => {
+    render={(data) => {
       const pageTitle = title || data.site.siteMetadata.title;
       const metaDescription = description || data.site.siteMetadata.description;
       return (
         <Helmet
           htmlAttributes={{
-            lang
+            lang,
           }}
           bodyAttributes={{
-            class: 'lp-pom-body'
+            class: 'lp-pom-body',
           }}
           title={pageTitle}
           titleTemplate={`%s | ${data.site.siteMetadata.title}`}
           meta={[
             {
               name: `description`,
-              content: metaDescription
+              content: metaDescription,
             },
             {
               property: `og:title`,
-              content: title
+              content: title,
             },
             {
               property: `og:description`,
-              content: metaDescription
+              content: metaDescription,
             },
             {
               property: `og:type`,
-              content: `website`
+              content: `website`,
             },
             {
               name: `twitter:card`,
-              content: `summary`
+              content: `summary`,
             },
             {
               name: `twitter:creator`,
-              content: data.site.siteMetadata.author
+              content: data.site.siteMetadata.author,
             },
             {
               name: `twitter:title`,
-              content: title
+              content: title,
             },
             {
               name: `twitter:description`,
-              content: metaDescription
-            }
+              content: metaDescription,
+            },
           ]
             .concat(
               keywords.length > 0
                 ? {
                     name: `keywords`,
-                    content: keywords.join(`, `)
+                    content: keywords.join(`, `),
                   }
                 : []
             )
@@ -83,9 +77,9 @@ const SEO: React.FunctionComponent<SEOProps> = ({
 );
 
 SEO.defaultProps = {
-  lang: 'en',
+  lang: 'es-ES',
   keywords: [],
-  meta: []
+  meta: [],
 };
 
 export default SEO;
