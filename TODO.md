@@ -1,32 +1,25 @@
-### Need-to-do
+# TODO
 
-#### Pages
+## Home Page
 
-* [ ] Books List (RWD with Tabs Navigation: Books + Chapters)
-* [ ] Chapters List (RWD with Tabs Navigation: Books + Chapters)
-* [ ] Chapter Page (List with all verses)
-* [ ] Search Page
+- Create the first page with "verse of the day"
+- List of all books
+-
 
-#### Content API
+## Pages
 
-* [x] Grab information about the bible ($BIBLE_API_KEY + $BIBLE_ID)
-* [x] Get all books to generate the indexes and links
-* [x] Get all chapters for each book
-* [x] Get all verses for each chapter
-* [x] Get content for each verse
+- Books
+- Chapters (for each book)
+- Chapter page (with all verses)
+- About
+- Privacy
 
-### Ideas
+## Tech Stack
 
-* [ ] Add Themes?
-* [ ] Add Fonts?
-* [ ] Control font-size
-* [ ] Translations / Versions?
-* [ ] Verse Numbers Hide/Show?
-* [ ] Red Letter Text?
-* [ ] Highlights/Remembers?
-
-### Nice-to-haves
-
-* Better logging
-* Sentry
-* Tests
+- Add Styled Components (Emotion)
+- Add a [Flexbox Grid system](https://github.com/rebassjs/grid)
+- Add TypeScript
+- Create Elements (Buttons, Form Fields, etc)
+- Add Google Analytics / Tag Manager
+- Convert files to jsx/tsx
+- Add few unit tests

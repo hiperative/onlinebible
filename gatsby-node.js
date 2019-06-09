@@ -1,7 +1,7 @@
-const createPages = require('./gatsby/createPages');
-const onCreatePage = require('./gatsby/onCreatePage');
-const sourceNodes = require('./gatsby/sourceNodes');
+/**
+ * Implement Gatsby's Node APIs in this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/node-apis/
+ */
 
-exports.sourceNodes = sourceNodes.default;
-exports.createPages = createPages.default;
-exports.onCreatePage = onCreatePage.default;
+// You can delete this file if you're not using it

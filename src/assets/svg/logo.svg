@@ -1,0 +1,12 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
+  <defs>
+    <style>.cls-1{fill:#fff;}</style>
+  </defs>
+  <title>Hiperative_Logo</title>
+  <rect class="cls-1" width="55" height="55"></rect>
+  <polygon points="23.57 31.43 31.43 31.43 31.43 39.29 39.29 39.29 39.29 15.71 31.43 15.71 31.43 23.57 23.57 23.57 23.57 15.71 15.71 15.71 15.71 39.29 23.57 39.29 23.57 31.43"></polygon>
+  <path d="M55,55V0H0V55ZM8,8H47V47H8Z" transform="translate(0)"></path>
+  <rect x="15" y="15" width="9" height="25"></rect>
+  <rect x="31" y="15" width="9" height="25"></rect>
+  <rect x="23" y="15" width="9" height="25" transform="translate(55) rotate(90)"></rect>
+</svg>

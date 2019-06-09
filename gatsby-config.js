@@ -1,43 +1,63 @@
-// loads configuration
-require('dotenv').config();
-
 module.exports = {
   siteMetadata: {
-    title: 'Biblia Online',
+    title: 'La Biblia Online',
+    description:
+      'Lea y busque la Biblia Sagrada de estudio con audio en diversas traducciones y lenguas. Versículos y mensajes bíblicos de la palabra de Dios para cada ocasión. Aplicación completa de estudio de las escrituras sagradas en español.',
+    keywords:
+      'La Biblia Sagrada, Biblia Online, Biblia cristiana, clc biblias, biblias de estudio, lea la biblia',
+    author: '@rafaelllycan',
+    url: 'https://www.bibliaonline.es',
   },
   plugins: [
-    `gatsby-plugin-lodash`,
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-tslint',
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        trackingId: process.env.GA_TRACKING_ID,
+        name: 'images',
+        path: `${__dirname}/src/assets/img`,
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        fonts: [`Crimson Text`]
-      }
-    },
-    {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        includePaths: ['./src/sass'],
+        google: {
+          families: ['Montserrat', 'PT Serif'],
+        },
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        fonts: [
+          {
+            family: 'Montserrat',
+          },
+          {
+            family: 'PT Serif',
+          },
+        ],
+      },
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'La Biblia Online',
+        short_name: 'Biblia Online',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/app-icon.png', // This path is relative to the root of the site.
+        background_color: '#f1f1f1',
+        theme_color: '#f1f1f1',
+        display: 'standalone',
+        icon: 'src/assets/img/app-icon.png', // This path is relative to the root of the site.
       },
     },
+
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.app/offline
     'gatsby-plugin-offline',
   ],
-}
+};
