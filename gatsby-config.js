@@ -8,6 +8,7 @@ module.exports = {
     keywords:
       'La Biblia Sagrada, Biblia Online, Biblia cristiana, clc biblias, biblias de estudio, lea la biblia',
     author: '@rafaelllycan',
+    siteUrl: 'https://www.bibliaonline.es',
     url: 'https://www.bibliaonline.es',
   },
   plugins: [
