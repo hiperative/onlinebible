@@ -45,16 +45,17 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'La Biblia Online',
         short_name: 'Biblia Online',
-        start_url: '/',
-        background_color: '#f1f1f1',
-        theme_color: '#f1f1f1',
+        start_url: '/?source=pwa',
+        background_color: '#fffafa',
+        theme_color: '#50e3c2',
         display: 'standalone',
-        icon: 'src/assets/img/app-icon.png', // This path is relative to the root of the site.
+        icon: 'src/assets/svg/novo-logo.svg', // This path is relative to the root of the site.
       },
     },
 
