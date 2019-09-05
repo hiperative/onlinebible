@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'PT Serif', serif;
     /* background-color: #50e3c2; */
-    background: #222222 url("https://www.bibliaonline.me/wp-content/uploads/2017/06/murray-campbell-29990.png") no-repeat center center fixed;
+    background: #222222 url("https://www.upsa.edu.gh/src/wp-content/uploads/2017/05/murray-campbell-29990-1-768x614.png") no-repeat center center fixed;
     background-size: cover;
     color: #50e3c2;
     /* color: #5C22FF; */
