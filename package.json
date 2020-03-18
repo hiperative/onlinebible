@@ -1,61 +1,28 @@
 {
-  "name": "biblia-online",
+  "name": "root",
   "private": true,
-  "description": "La Biblia Online ES",
   "version": "1.0.0",
-  "author": "Rafaell Lycan <sonny.webdsg@gmail.com> (https://rafaell-lycan.com)",
+  "main": "index.js",
+  "repository": "git@github.com:hiperative/onlinebible.git",
+  "author": "Rafaell Lycan <sonny.webdsg@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "type-check": "tsc --noEmit",
-    "lint": "tslint --project ."
+    "start": "yarn build && yarn serve",
+    "build": "lerna run build",
+    "serve": "lerna run serve",
+    "format": "prettier --write packages/*/src/**/*.{ts,tsx}",
+    "lint": "lerna run lint",
+    "type-check": "lerna run tsc --noEmit",
+    "test": "cross-env CI=true lerna run test -- --coverage"
   },
-  "dependencies": {
-    "axios": "^0.19.0",
-    "babel-plugin-styled-components": "^1.10.0",
-    "dotenv": "^8.0.0",
-    "gatsby": "^2.1.18",
-    "gatsby-image": "^2.0.30",
-    "gatsby-plugin-manifest": "^2.0.19",
-    "gatsby-plugin-offline": "^2.0.24",
-    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
-    "gatsby-plugin-react-helmet": "^3.0.7",
-    "gatsby-plugin-sharp": "^2.0.22",
-    "gatsby-plugin-sitemap": "^2.1.0",
-    "gatsby-plugin-styled-components": "^3.0.7",
-    "gatsby-plugin-tslint": "^0.0.2",
-    "gatsby-plugin-typescript": "^2.0.14",
-    "gatsby-plugin-web-font-loader": "^1.0.4",
-    "gatsby-source-filesystem": "^2.0.23",
-    "gatsby-transformer-sharp": "^2.1.14",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-helmet": "^5.2.0",
-    "styled-components": "^4.2.0",
-    "styled-tools": "^1.7.1"
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "@babel/preset-react": "^7.0.0",
-    "@types/axios": "^0.14.0",
-    "@types/node": "^12.0.2",
-    "@types/react": "^16.8.18",
-    "@types/react-dom": "^16.8.4",
-    "@types/react-helmet": "^5.0.8",
-    "@types/styled-components": "^4.1.15",
-    "babel-preset-gatsby": "^0.1.8",
-    "prettier": "^1.16.4",
-    "pretty-quick": "^1.10.0",
-    "tslint": "^5.16.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-loader": "^3.5.4",
-    "tslint-origin-ordered-imports-rule": "^1.2.2",
-    "tslint-plugin-prettier": "^2.0.1",
-    "tslint-react": "^4.0.0",
-    "typescript": "^3.4.5"
+    "lerna": "^3.20.2",
+    "prettier": "^1.19.1",
+    "typescript": "^3.8.3"
   }
 }
