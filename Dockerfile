@@ -13,4 +13,4 @@ RUN yarn build
 
 FROM nginx:mainline
 
-COPY --from=builder /app/packages/app/build /usr/share/nginx/html
+COPY --from=builder /app/packages/web/public /usr/share/nginx/html

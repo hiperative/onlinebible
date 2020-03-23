@@ -9,7 +9,7 @@
   "scripts": {
     "start": "yarn build && yarn serve",
     "build": "lerna run build",
-    "serve": "lerna run serve",
+    "serve": "lerna run serve --scope bibie-api-server",
     "format": "prettier --write packages/*/src/**/*.{ts,tsx}",
     "lint": "lerna run lint",
     "type-check": "lerna run tsc --noEmit",
