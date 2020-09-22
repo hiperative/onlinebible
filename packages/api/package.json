@@ -29,7 +29,7 @@
     "graphql-yoga": "^1.18.3",
     "newrelic": "^6.13.0",
     "node-fetch": "^2.6.0",
-    "typescript": "^3.8.3",
+    "typescript": "^3.9.7",
     "winston": "^3.2.1",
     "xml2js": "^0.4.23"
   }
