@@ -1,4 +1,10 @@
-const { PORT = 4000, NODE_ENV = 'development', API_KEY, BIBLE_ID } = process.env;
+const {
+  PORT = 4000,
+  NODE_ENV = 'development',
+  API_KEY,
+  BIBLE_ID,
+  BIBLE_BOX_VERSION
+} = process.env;
 
 if(!(API_KEY && BIBLE_ID)) throw new Error('$API_KEY and/or $BIBLE_ID not defined.');
 
@@ -10,4 +16,5 @@ export {
   PORT,
   API_KEY,
   BIBLE_ID,
+  BIBLE_BOX_VERSION,
 }
