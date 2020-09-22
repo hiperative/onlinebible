@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import 'newrelic';
 import { GraphQLServer } from 'graphql-yoga';
 
 import { PORT, IS_PRODUCTION } from './config';
