@@ -12,7 +12,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.20.0",
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
     "gatsby-plugin-manifest": "^2.2.48",
@@ -28,7 +28,11 @@
     "gatsby-transformer-sharp": "^2.3.19",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-helmet": "^5.2.1",
+    "react-helmet": "^6.1.0",
     "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "lerna": "^3.20.2",
+    "typescript": "^3.8.3"
   }
 }
