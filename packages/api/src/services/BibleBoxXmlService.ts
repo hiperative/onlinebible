@@ -1,5 +1,6 @@
 import {parseString} from 'xml2js';
 
+import { BIBLE_BOX_VERSION } from '../config';
 import { logger } from './../utils/logger';
 import { BaseService, ResponseFormat } from './BaseService';
 import { XmlChapterResponse } from '../interfaces';
@@ -105,7 +106,7 @@ export class Service extends BaseService {
 
   async getVerses({id, bibleId = 'rv'}) {
 		logger.info('->getVerses', id);
-    const xml = await this.request<string>(`/v19/bibles/${bibleId}/${this.normalizeId(id)}.xml`)
+    const xml = await this.request<string>(`/${BIBLE_BOX_VERSION}/bibles/${bibleId}/${this.normalizeId(id)}.xml`)
 
     return await this.parseXml(xml);
   }

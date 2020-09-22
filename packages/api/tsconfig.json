@@ -3,5 +3,5 @@
   "compilerOptions": {
     "outDir": "dist"
   },
-  "include": ["./src/**/*", "newrelic.js"]
+  "include": ["./src/**/*"]
 }
