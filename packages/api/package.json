@@ -28,7 +28,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "graphql-yoga": "^1.18.3",
-    "newrelic": "^6.13.0",
+    "newrelic": "^6.13.1",
     "node-fetch": "^2.6.0",
     "typescript": "^3.8.3",
     "winston": "^3.2.1",
