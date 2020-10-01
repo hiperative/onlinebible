@@ -2,20 +2,21 @@ import { API_KEY, BIBLE_ID } from '../config';
 import { logger } from './../utils/logger';
 import { BaseService } from './BaseService';
 import { APIBibleResponse, APIBookResponse } from './../interfaces';
+import { BIBLE_API_BASE_URL, BIBLE_API_CUSTOM_HEADER } from '../constants';
 
 class Service extends BaseService {
   constructor(private apiKey: string, private bibleId: string) {
     super();
-    this.apiBaseUrl = 'https://api.scripture.api.bible';
+    this.apiBaseUrl = BIBLE_API_BASE_URL;
     this.requestOptions = {
-      headers: { "api-key": this.apiKey }
+      headers: { [BIBLE_API_CUSTOM_HEADER]: this.apiKey }
     }
   }
 
   private parseBibleInfo(bible: APIBibleResponse): Partial<APIBibleResponse> {
     const {id, name, nameLocal, description, abbreviation } = bible;
 
-    logger.info(`->get bible: ${name} ${abbreviation}`);
+    logger.info(`->parseBibleInfo: ${name} ${abbreviation}`);
 
     return { id, name, nameLocal, description, abbreviation };
   }

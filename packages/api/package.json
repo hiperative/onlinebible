@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@types/newrelic": "^6.4.0",
+    "@types/redis": "^2.8.27",
     "@types/xml2js": "^0.4.5",
     "nodemon": "^2.0.2",
     "prettier": "^2.1.2",
@@ -30,6 +31,7 @@
     "graphql-yoga": "^1.18.3",
     "newrelic": "^6.13.0",
     "node-fetch": "^2.6.0",
+    "redis": "^3.0.2",
     "typescript": "^3.8.3",
     "winston": "^3.2.1",
     "xml2js": "^0.4.23"

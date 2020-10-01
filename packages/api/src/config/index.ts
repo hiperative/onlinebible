@@ -3,7 +3,8 @@ const {
   NODE_ENV = 'development',
   API_KEY,
   BIBLE_ID,
-  BIBLE_BOX_VERSION
+  BIBLE_BOX_VERSION,
+  REDIS_URL,
 } = process.env;
 
 if(!(API_KEY && BIBLE_ID)) throw new Error('$API_KEY and/or $BIBLE_ID not defined.');
@@ -17,4 +18,5 @@ export {
   API_KEY,
   BIBLE_ID,
   BIBLE_BOX_VERSION,
+  REDIS_URL,
 }

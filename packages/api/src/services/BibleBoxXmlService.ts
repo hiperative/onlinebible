@@ -2,96 +2,31 @@ import {parseString} from 'xml2js';
 
 import { BIBLE_BOX_VERSION } from '../config';
 import { logger } from './../utils/logger';
+import { BIBLE_BOX_BASE_URL, BOOKS_REF } from '../constants';
 import { BaseService, ResponseFormat } from './BaseService';
 import { XmlChapterResponse } from '../interfaces';
-
-const BooksRef = {
-	"GEN": 1,
-	"EXO": 2,
-	"LEV": 3,
-	"NUM": 4,
-	"DEU": 5,
-	"JOS": 6,
-	"JDG": 7,
-	"RUT": 8,
-	"1SA": 9,
-	"2SA": 10,
-	"1KI": 11,
-	"2KI": 12,
-	"1CH": 13,
-	"2CH": 14,
-	"EZR": 15,
-	"NEH": 16,
-	"EST": 17,
-	"JOB": 18,
-	"PSA": 19,
-	"PRO": 20,
-	"ECC": 21,
-	"SNG": 22,
-	"ISA": 23,
-	"JER": 24,
-	"LAM": 25,
-	"EZK": 26,
-	"DAN": 27,
-	"HOS": 28,
-	"JOL": 29,
-	"AMO": 30,
-	"OBA": 31,
-	"JON": 32,
-	"MIC": 33,
-	"NAM": 34,
-	"HAB": 35,
-	"ZEP": 36,
-	"HAG": 37,
-	"ZEC": 38,
-	"MAL": 39,
-	"MAT": 40,
-	"MRK": 41,
-	"LUK": 42,
-	"JHN": 43,
-	"ACT": 44,
-	"ROM": 45,
-	"1CO": 46,
-	"2CO": 47,
-	"GAL": 48,
-	"EPH": 49,
-	"PHP": 50,
-	"COL": 51,
-	"1TH": 52,
-	"2TH": 53,
-	"1TI": 54,
-	"2TI": 55,
-	"TIT": 56,
-	"PHM": 57,
-	"HEB": 58,
-	"JAS": 59,
-	"1PE": 60,
-	"2PE": 61,
-	"1JN": 62,
-	"2JN": 63,
-	"3JN": 64,
-	"JUD": 65,
-	"REV": 66
-};
+import { CacheService } from './CacheService';
 
 
 export class Service extends BaseService {
 	constructor() {
 		super();
-		this.apiBaseUrl = 'https://data.bcdn.in/';
+		this.apiBaseUrl = BIBLE_BOX_BASE_URL;
 		this.responseFormat = ResponseFormat.Text;
 	}
 
   private normalizeId(id: string){
-    const [book, chapter] = id.split('.');
+		const [book, chapter] = id.split('.');
 
-    return `${BooksRef[book]}/${chapter}`;
+		if(!book || !chapter) throw new Error(`ID ${id} is not acceptable.`);
+
+    return `${BOOKS_REF[book]}/${chapter}`;
   }
 
   private transformXmlToJson(xml: string): Promise<XmlChapterResponse> {
     return new Promise((resolve, reject) => {
       parseString(xml, (err, result) => {
-        if(err) reject();
+        if(err) reject(err);
 
         return resolve(result);
       })
@@ -105,10 +40,29 @@ export class Service extends BaseService {
   }
 
   async getVerses({id, bibleId = 'rv'}) {
-		logger.info('->getVerses', id);
-    const xml = await this.request<string>(`/${BIBLE_BOX_VERSION}/bibles/${bibleId}/${this.normalizeId(id)}.xml`)
+		try {
+			logger.info('->getVerses', id);
 
-    return await this.parseXml(xml);
+			const fromCache = await CacheService.get(id);
+			let xml: string;
+
+			if(fromCache) {
+				logger.info('->getVerses:cache');
+
+				xml = fromCache as string;
+			} else {
+				logger.info('->getVerses:request');
+
+				xml = await this.request<string>(`/${BIBLE_BOX_VERSION}/bibles/${bibleId}/${this.normalizeId(id)}.xml`)
+				await CacheService.set(id, xml);
+			}
+
+			return await this.parseXml(xml);
+		} catch (err) {
+			logger.error(err);
+
+			throw err;
+		}
   }
 }
 
