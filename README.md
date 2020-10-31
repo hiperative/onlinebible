@@ -5,13 +5,11 @@
 
 ## About
 
-Biblia Online is an open platform for building developer portals.
+Biblia Online is an application (Web + API) to help churches and religious organizations get rid of complexity.
 
-The philosophy behind Biblia Online is simple: Don't expose your engineers to the full complexity of your infrastructure tooling. Engineers should be shipping code — not figuring out a whole new toolset every time they want to implement the basics. Biblia Online allows you add "stuff" (tooling, services, features, etc.) by adding a plugin, instead of building a new tool. This saves you work and avoids the need of your team to learn how to use and support yet another tool.
+We know that creating unique content ends up competing with basic tasks such making devotions, verses, comments, social networking nurture, and so many other day-to-day tasks available.
 
-![headline](headline.png)
-
-For more information go to [bibliaonline.es](https://bibliaonline.es)
+We believe that we can offer many of these services free of charge, with professional quality and focused on the word of God.
 
 ## Getting started
 
