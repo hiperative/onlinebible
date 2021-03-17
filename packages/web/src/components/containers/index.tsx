@@ -19,7 +19,7 @@ const IndexContainer = () => {
   return (
     <Container>
       <Logo src={logo} alt="La Biblia Online" />
-      <Pill>Disponible en Mayo 2020</Pill>
+      <Pill>Disponible en Mayo 2021</Pill>
       <Title>Lea la Biblia Sagrada desde su ordenador, movil o tablet.</Title>
       <Text>
         Creemos que la Biblia es una historia unificada que nos lleva a Jesús y nuestra misión es
