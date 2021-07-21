@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build && npm run export"
+  publish = "out"
+
+[template.environment]
+  NEXT_TELEMETRY_DISABLED = 1
+
+[[plugins]]
+  package = "netlify-plugin-cache-nextjs"
