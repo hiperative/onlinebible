@@ -14,7 +14,16 @@ const colors = {
 }
 
 const fonts = {
-  sans: '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',
+  sans: [
+    '-apple-system',
+    'system-ui',
+    'BlinkMacSystemFont',
+    '"Segoe UI"',
+    'Roboto',
+    '"Helvetica Neue"',
+    'Arial',
+    'sans-serif',
+  ].join(','),
 }
 
 const fontSizes = {
