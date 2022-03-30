@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import media from '../../../styles/functions/media';
+import media from '../../../styles/functions/media'
 
- const Button = styled.button`
+const Button = styled.button`
   display: block;
   border: none;
   border-radius: 4px;
@@ -13,14 +13,16 @@ import media from '../../../styles/functions/media';
   /* background: #5c22ff; */
   color: #000;
   font-size: 14px;
-  font-family: 'Montserrat';
+  /* font-family: 'Montserrat'; */
   text-align: center;
 
   ${media.tablet`
     display: inline-block;
     width: 175px;
-    margin-left: -10px;
+    margin-top: 0;
+    /* margin-left: -10px; */
+    border-radius: 0 4px 4px 0;
   `};
-`;
+`
 
-export default Button;
+export default Button

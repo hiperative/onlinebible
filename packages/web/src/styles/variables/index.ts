@@ -11,7 +11,7 @@
 // export { default as Border } from './border';
 // export { default as BorderRadius } from './borderRadius';
 // export { default as TransitionTime } from './transitionTime';
-export { default as Breakpoint } from './breakpoint';
+export { default as Breakpoint } from './breakpoint'
 
 // Rebass grid spaces
 // export { default as Space } from './space';
