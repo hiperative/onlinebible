@@ -87,9 +87,10 @@ export default class MyDocument extends Document {
             type="image/svg+xml"
           />
           <link
-            rel="preload"
-            as="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Montserrat&family=PT+Serif&display=optional"
+            rel="stylesheet"
+            // rel="preload"
+            // as="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Montserrat&family=PT+Serif&display=swap"
           />
 
           {GA_TRACKING_ID && (
