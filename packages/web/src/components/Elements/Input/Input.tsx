@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import media from '../../../styles/functions/media';
+import media from '../../../styles/functions/media'
 
 export const Input = styled.input`
   display: block;
@@ -18,7 +18,8 @@ export const Input = styled.input`
   ${media.tablet`
     display: inline-block;
     width: 320px;
+    border-radius: 4px 0 0 4px;
   `};
-`;
+`
 
-export default Input;
+export default Input

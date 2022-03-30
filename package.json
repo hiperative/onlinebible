@@ -10,6 +10,7 @@
     "start": "yarn build && yarn serve",
     "build": "lerna run build",
     "heroku-postbuild": "yarn build",
+    "dev:web": "lerna --scope bible-web-client exec 'yarn dev'",
     "serve": "lerna --scope bibie-api-server exec 'yarn serve'",
     "format": "prettier --write packages/*/src/**/*.{ts,tsx}",
     "lint": "lerna run lint",
