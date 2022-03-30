@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@types/newrelic": "^6.13.0",
-    "@types/redis": "^2.8.28",
+    "@types/redis": "^2.8.32",
     "@types/xml2js": "^0.4.5",
     "nodemon": "^2.0.6",
     "prettier": "^2.1.2",
