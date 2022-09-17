@@ -22,7 +22,7 @@
     "@types/newrelic": "^6.13.0",
     "@types/redis": "^2.8.28",
     "@types/xml2js": "^0.4.5",
-    "nodemon": "^2.0.6",
+    "nodemon": "^2.0.20",
     "prettier": "^2.1.2",
     "ts-node": "^9.0.0"
   },
