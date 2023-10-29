@@ -1,4 +1,3 @@
-
 import Head from 'next/head'
 import styled from 'styled-components'
 
@@ -11,8 +10,10 @@ export async function getStaticProps() {
   return {
     props: {
       title: 'Leer la Biblia Online',
-      description: 'Lea y busque la Biblia Sagrada de estudio con audio en diversas traducciones y lenguas. Versículos y mensajes bíblicos de la palabra de Dios para cada ocasión. Aplicación completa de estudio de las escrituras sagradas en español.',
-      keywords: 'La Biblia Sagrada, Biblia Online, Biblia cristiana, clc biblias, biblias de estudio, lea la biblia'
+      description:
+        'Lea y busque la Biblia Sagrada de estudio con audio en diversas traducciones y lenguas. Versículos y mensajes bíblicos de la palabra de Dios para cada ocasión. Aplicación completa de estudio de las escrituras sagradas en español.',
+      keywords:
+        'La Biblia Sagrada, Biblia Online, Biblia cristiana, clc biblias, biblias de estudio, lea la biblia',
     },
   }
 }
@@ -34,7 +35,7 @@ export default function IndexPage(props) {
       </Head>
 
       <Logo src="/svg/novo-logo.svg" alt="La Biblia Online" />
-      <Pill>Disponible en Mayo 2022</Pill>
+      <Pill>Disponible en Diciembre 2023</Pill>
       <Title>Lea la Biblia Sagrada desde su ordenador, movil o tablet.</Title>
       <Text>
         Creemos que la Biblia es una historia unificada que nos lleva a Jesús y
