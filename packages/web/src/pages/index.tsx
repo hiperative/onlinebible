@@ -35,7 +35,7 @@ export default function IndexPage(props) {
       </Head>
 
       <Logo src="/svg/novo-logo.svg" alt="La Biblia Online" />
-      <Pill>Disponible en Diciembre 2023</Pill>
+      <Pill>Disponible en Septiembre 2024</Pill>
       <Title>Lea la Biblia Sagrada desde su ordenador, movil o tablet.</Title>
       <Text>
         Creemos que la Biblia es una historia unificada que nos lleva a Jesús y
