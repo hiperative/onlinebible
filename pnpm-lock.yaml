@@ -14,6 +14,9 @@ importers:
       '@astrojs/netlify':
         specifier: ^5.3.2
         version: 5.3.2(@opentelemetry/api@1.9.0)(astro@4.11.1(@types/node@20.14.8)(typescript@5.5.2))
+      '@astrojs/partytown':
+        specifier: ^2.1.1
+        version: 2.1.1
       '@astrojs/react':
         specifier: ^3.6.0
         version: 3.6.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.3.1(@types/node@20.14.8))
@@ -23,6 +26,12 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.0(astro@4.11.1(@types/node@20.14.8)(typescript@5.5.2))(tailwindcss@3.4.4)
+      '@fontsource-variable/montserrat':
+        specifier: 5.0.19
+        version: 5.0.19
+      '@fontsource/pt-serif':
+        specifier: 5.0.21
+        version: 5.0.21
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.3
@@ -86,6 +95,9 @@ packages:
     resolution: {integrity: sha512-0wJMHF7+QUcuZxM3BLIbgApkXX+cKBDqk4NmjeLim8r604ruDyHNLmt+Wyr8ggp+lcIcNG5isjuneM3dL9/RGw==}
     peerDependencies:
       astro: ^4.2.0
+
+  '@astrojs/partytown@2.1.1':
+    resolution: {integrity: sha512-KvecQuGGgrDrdTjC5awmtoQXqJFinChfeizKBJyr7F5EGQPx62xq8SIWkcXamLr5xZyNw0lryKeLtIzbxRH/zw==}
 
   '@astrojs/prism@3.1.0':
     resolution: {integrity: sha512-Z9IYjuXSArkAUx3N6xj6+Bnvx8OdUSHA8YoOgyepp3+zJmtVYJIl/I18GozdJVW1p5u/CNpl3Km7/gwTJK85cw==}
@@ -234,6 +246,11 @@ packages:
   '@babel/types@7.24.7':
     resolution: {integrity: sha512-XEFXSlxiG5td2EJRe8vOmRbaXVgfcBlszKujvVmWIK/UpywWljQCfzAv3RQCGujWQ1RD4YYWEAqDXfuJiy8f5Q==}
     engines: {node: '>=6.9.0'}
+
+  '@builder.io/partytown@0.10.2':
+    resolution: {integrity: sha512-A9U+4PREWcS+CCYzKGIPovtGB/PBgnH/8oQyCE6Nr9drDJk6cMPpLQIEajpGPmG9tYF7N3FkRvhXm/AS9+0iKg==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
 
   '@emmetio/abbreviation@2.3.3':
     resolution: {integrity: sha512-mgv58UrU3rh4YgbE/TzgLQwJ3pFsHHhCLqY20aJq+9comytTXUDNGG/SMtSeMJdkpxgXSXunBGLD8Boka3JyVA==}
@@ -534,6 +551,12 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource-variable/montserrat@5.0.19':
+    resolution: {integrity: sha512-vOlVjdGock2yBOeBbg5qexPa1TJM/PS8Nx9YlF6DFEtFf/Y5ayDbZRvV/WPj8W2vk7/aDxUEtTAp/Qp8wK9hNQ==}
+
+  '@fontsource/pt-serif@5.0.21':
+    resolution: {integrity: sha512-iYiluw2goKVdSdtskt+rNgYpEgmajKQyeTCPU8W4lj81jYAolfX8cnTjlY4d3tnZGcznhtYsjRrEya7+Baox9Q==}
 
   '@grpc/grpc-js@1.10.10':
     resolution: {integrity: sha512-HPa/K5NX6ahMoeBv15njAc/sfF4/jmiXLar9UlC2UfHFKZzsCVLc3wbe7+7qua7w9VPh2/L6EBxyAV7/E8Wftg==}
@@ -2631,6 +2654,11 @@ snapshots:
       - '@opentelemetry/api'
       - supports-color
 
+  '@astrojs/partytown@2.1.1':
+    dependencies:
+      '@builder.io/partytown': 0.10.2
+      mrmime: 2.0.0
+
   '@astrojs/prism@3.1.0':
     dependencies:
       prismjs: 1.29.0
@@ -2842,6 +2870,8 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       to-fast-properties: 2.0.0
 
+  '@builder.io/partytown@0.10.2': {}
+
   '@emmetio/abbreviation@2.3.3':
     dependencies:
       '@emmetio/scanner': 1.0.4
@@ -3007,6 +3037,10 @@ snapshots:
 
   '@esbuild/win32-x64@0.21.5':
     optional: true
+
+  '@fontsource-variable/montserrat@5.0.19': {}
+
+  '@fontsource/pt-serif@5.0.21': {}
 
   '@grpc/grpc-js@1.10.10':
     dependencies:
