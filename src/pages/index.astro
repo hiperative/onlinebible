@@ -1,9 +1,15 @@
 ---
+import { getCollection } from 'astro:content';
+
 import Layout from '../layouts/Layout.astro';
 import Pill from '../components/Pill.astro';
 import Newsletter from '../components/Newsletter';
 
 import { SeoValues } from '../constants/seo'
+
+const [books] = await getCollection('books');
+
+console.log(books)
 ---
 
 <Layout title={SeoValues.title} description={SeoValues.description}>

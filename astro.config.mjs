@@ -3,8 +3,9 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import netlify from "@astrojs/netlify";
 import sitemap from "@astrojs/sitemap";
-
 import partytown from "@astrojs/partytown";
+
+import db from "@astrojs/db";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,11 +13,11 @@ export default defineConfig({
   // trailingSlash: "never",
   integrations: [react(), tailwind(), sitemap(), partytown({
     config: {
-      forward: ["dataLayer.push"],
+      forward: ["dataLayer.push"]
     }
-  })],
+  }), db()],
   adapter: netlify(),
-  output: "static",
+  output: "static"
   // prefetch: {
   //   prefetchAll: true,
   //   defaultStrategy: "viewport"
