@@ -1,30 +1,30 @@
 {
-  "name": "root",
+  "name": "onlinebible",
+  "description": "The Online Bible in Spanish'",
   "private": true,
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:hiperative/onlinebible.git",
+  "type": "module",
+  "version": "0.0.0",
   "author": "Rafaell Lycan <sonny.webdsg@gmail.com>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
-    "start": "yarn build && yarn serve",
-    "build": "lerna run build",
-    "heroku-postbuild": "yarn build",
-    "dev:web": "lerna --scope bible-web-client exec 'yarn dev'",
-    "serve": "lerna --scope bibie-api-server exec 'yarn serve'",
-    "format": "prettier --write packages/*/src/**/*.{ts,tsx}",
-    "lint": "lerna run lint",
-    "type-check": "lerna run tsc --noEmit",
-    "test": "cross-env CI=true lerna run test -- --coverage"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
-  "devDependencies": {
-    "lerna": "^3.20.2",
-    "prettier": "^1.19.1",
-    "typescript": "^3.8.3"
+  "dependencies": {
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/netlify": "^5.3.2",
+    "@astrojs/react": "^3.6.0",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/tailwind": "^5.1.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.11.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.2"
   }
 }
