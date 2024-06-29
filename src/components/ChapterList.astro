@@ -1,0 +1,28 @@
+---
+import type { Book } from '@/lib/bible'
+
+interface Props {
+  book: Book
+}
+
+const { book } = Astro.props
+
+const chapters = Array.from({ length: book.chapters }, (_, i) => i + 1)
+---
+
+<section class="py-12" data-bookid={book.bookid} data-book-name={book.name}>
+  <ul class="flex flex-wrap items-center">
+    {
+      chapters.map((chapter) => (
+        <li class="w-1/5 sm:w-[10%]">
+          <a
+            href={`/${book.bookid}/${chapter}`}
+            class="m-1 block rounded bg-secondary py-2 text-center text-xl text-secondary-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+          >
+            {chapter}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

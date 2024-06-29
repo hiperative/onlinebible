@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets'
+import type { Book, SurroundingChapter } from '@/lib/bible'
+
+interface Props {
+  book: Book
+  chapterId?: string
+  nextChapter: SurroundingChapter
+  previousChapter: SurroundingChapter
+}
+
+const { book, chapterId, nextChapter, previousChapter } = Astro.props
+
+function getIllustration(book: Book, chapterId?: string) {
+  if ((!chapterId || chapterId === '1') && book.illustration) {
+    return `/img/book-illustrations/${book.illustration}.svg`
+  }
+}
+
+const title = chapterId ? `${book.name} ${chapterId}` : `${book.name}`
+const illustration = getIllustration(book, chapterId)
+---
+
+{
+  illustration && (
+    <Image
+      class="m mx-auto my-8 block w-24"
+      width="100"
+      height="141"
+      loading="lazy"
+      src={illustration}
+      alt={`Ilustración del libro ${book.name}`}
+    />
+  )
+}
+
+<h1 class="relative flex flex-col items-center font-headline text-2xl">
+  {title}
+  <span class="mt-2 h-0.5 w-12 bg-accent"></span>
+</h1>

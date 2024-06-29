@@ -1,0 +1,21 @@
+---
+import Verse from './Verse.astro'
+import { Footnotes } from './Footnotes'
+import type { VerseWithComment } from '@/lib/bible'
+
+interface Props {
+  verses: VerseWithComment[]
+}
+
+const { verses } = Astro.props
+---
+
+<section class="py-12">
+  {
+    verses.map(({ verse, text, comment }) => (
+      <Verse verse={verse} text={text} comment={comment} />
+    ))
+  }
+
+  <!-- <Footnotes verses={verses} client:idle /> -->
+</section>

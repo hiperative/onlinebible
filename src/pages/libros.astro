@@ -1,0 +1,56 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { A } from '@/components/ui/anchor'
+import { OLD_TESTAMENT_BOOKS_COUNT } from '@/constants/bible'
+import { getBooks } from '@/lib/bible'
+
+const books = await getBooks()
+const oldTestament = books.slice(0, OLD_TESTAMENT_BOOKS_COUNT)
+const newTestament = books.slice(OLD_TESTAMENT_BOOKS_COUNT)
+---
+
+<Layout
+  title="Biblia Online - Libros de la Biblia RV Reina Valera"
+  description="Explore la Santa Biblia con búsqueda rápida, lea en varios idiomas, escuche, cree imágenes y videos de versículos. Encuentre esperanza e inspiración a diario."
+>
+  <!-- <img src="/svg/novo-logo.svg" alt="La Biblia Online" class="size-12 block" /> -->
+
+  <div class="flex w-full">
+    <div class="w-full flex-grow-[200%]">
+      <h2 class="pb-4 font-headline sm:text-center sm:text-xl">
+        Antiguo Testamento
+      </h2>
+      <ul class="block w-full columns-1 sm:columns-2">
+        {
+          oldTestament.map((book) => (
+            <li data-bookid={book.bookid} class="py-2">
+              <A href={`/${book.bookid}`} className="py-1 text-lg sm:text-base">
+                {book.name}
+              </A>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="w-full flex-grow-[200%]">
+      <h2 class="pb-4 text-right font-headline sm:text-center sm:text-xl">
+        Nuevo Testamento
+      </h2>
+      <ul class="block w-full columns-1 text-right sm:columns-2 sm:text-start">
+        {
+          newTestament.map((book) => (
+            <li data-bookid={book.bookid} class="block py-2">
+              <A
+                href={`/${book.bookid}`}
+                className="block py-1 text-lg sm:text-base"
+              >
+                {book.name}
+              </A>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</Layout>

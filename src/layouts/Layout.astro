@@ -1,15 +1,36 @@
 ---
-import '@fontsource/pt-serif';
-import '@fontsource-variable/montserrat';
-import '../styles/base.css';
+import { ViewTransitions } from 'astro:transitions'
+import '@fontsource-variable/inter'
+import '@fontsource/dm-serif-display'
+
+import { SeoValues } from '@/constants/seo'
+import { cn } from '@/lib/utils'
+import { Navbar } from '@/components/Navbar'
+import { TailwindIndicator } from '@/components/TailwindIndicator'
+
+import '@/styles/globals.css'
 
 interface Props {
-	title: string
+  /**
+   * SEO specifics
+   */
+  title: string
   description: string
-	image?: string
+  image?: string
+
+  /**
+   * Container CSS classes
+   */
+  css?: string
+
+  /**
+   * Navbar specifics
+   */
+  showNav?: boolean
+  path?: string
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image, css, path, showNav = true } = Astro.props
 
 /**
  * <meta content={SeoValues.keywords} name="keywords" />
@@ -37,31 +58,37 @@ const { title, description, image } = Astro.props;
 
 <!doctype html>
 <html lang="es-ES">
-	<head>
-		<!-- global metadata -->
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/svg/novo-logo.svg" />
-		<meta name="generator" content={Astro.generator} />
+  <head>
+    <!-- global metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/svg/novo-logo.svg" />
+    <meta name="generator" content={Astro.generator} />
 
-		<!-- primary meta tags -->
-		<title>{title}</title>
-		<meta name="title" content={title} />
+    <!-- primary meta tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta content={SeoValues.keywords} name="keywords" />
+    <meta content="index,follow" name="robots" />
 
-		<!-- open graph -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={Astro.url} />
+    <!-- open graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-		<meta property="og:image" content={image} />
+    <meta property="og:image" content={image} />
 
-		<!-- link tags -->
-		<link rel="sitemap" href="/sitemap-index.xml">
-	</head>
-	<body>
-		<main class="mx-auto p-5 w-full max-w-[600px]">
-			<slot />
-		</main>
-	</body>
+    <!-- link tags -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <ViewTransitions />
+  </head>
+  <body>
+    {showNav && <Navbar path={path} />}
+    <main class={cn('mx-auto w-full max-w-2xl p-5 min-h-screen', css)}>
+      <slot />
+    </main>
+    <TailwindIndicator />
+  </body>
 </html>

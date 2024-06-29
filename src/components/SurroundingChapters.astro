@@ -1,0 +1,48 @@
+---
+import { ChevronRight, ChevronLeft } from 'lucide-react'
+import { TOTAL_BOOKS_COUNT } from '@/constants/bible'
+import type { SurroundingChapter } from '@/lib/bible'
+
+interface Props {
+  nextChapter: SurroundingChapter
+  previousChapter: SurroundingChapter
+}
+
+const { nextChapter, previousChapter } = Astro.props
+const nextTitle = `${nextChapter?.book.name} ${nextChapter?.chapter}`
+const prevTitle = `${previousChapter?.book.name} ${previousChapter?.chapter}`
+---
+
+<nav class="mb-12">
+  <ul class="flex">
+    {
+      previousChapter && (
+        <li data-id="previous-chapter" class="mr-auto justify-start">
+          <a
+            href={previousChapter.path}
+            data-passage={prevTitle}
+            title={prevTitle}
+            class="flex size-16 items-center justify-center rounded-full transition-colors hover:bg-primary-foreground hover:text-primary"
+          >
+            <ChevronLeft />
+          </a>
+        </li>
+      )
+    }
+
+    {
+      nextChapter && (
+        <li data-id="next-chapter" class="ml-auto justify-end">
+          <a
+            href={nextChapter.path}
+            data-passage={nextTitle}
+            title={nextTitle}
+            class="flex size-16 items-center justify-center rounded-full transition-colors hover:bg-primary-foreground hover:text-primary"
+          >
+            <ChevronRight />
+          </a>
+        </li>
+      )
+    }
+  </ul>
+</nav>

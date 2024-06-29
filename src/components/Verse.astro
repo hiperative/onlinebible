@@ -1,0 +1,18 @@
+---
+import { VerseReference } from '@/components/VerseReference'
+import type { VerseWithComment } from '@/lib/bible'
+
+interface Props {
+  verse: number
+  text: string
+  comment?: VerseWithComment['comment']
+}
+
+const { verse, text, comment } = Astro.props
+---
+
+<p class="text-balance pb-4 leading-relaxed" data-id={verse}>
+  <b class="mr-1 rounded py-2 align-super text-[10px] text-primary">{verse}</b>
+  <span set:html={text} />
+  <VerseReference comment={comment} client:idle />
+</p>

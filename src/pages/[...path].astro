@@ -1,0 +1,62 @@
+---
+import {
+  getPaths,
+  getNextPath,
+  getPreviousPath,
+  getMetadata,
+} from '@/lib/bible'
+import Headline from '@/components/Headline.astro'
+import ChapterList from '@/components/ChapterList.astro'
+import SurroundingChapters from '@/components/SurroundingChapters.astro'
+import VerseList from '@/components/VerseList.astro'
+import Layout from '@/layouts/Layout.astro'
+
+export async function getStaticPaths() {
+  return await getPaths()
+}
+
+const { entry, book, verses, highlighted } = Astro.props
+const { path } = Astro.params
+
+const [_, chapterId] = path.split('/')
+
+const nextChapter = getNextPath(book, chapterId ? Number(chapterId) : undefined)
+const previousChapter = getPreviousPath(
+  book,
+  chapterId ? Number(chapterId) : undefined,
+)
+
+const metadata = getMetadata({
+  book,
+  chapter: chapterId ? Number(chapterId) : undefined,
+  verses,
+})
+
+console.log({ entry, path, chapterId })
+---
+
+<Layout
+  title={metadata.title}
+  description={metadata.description}
+  path="/libros"
+>
+  <Headline
+    book={book}
+    chapterId={chapterId}
+    nextChapter={nextChapter}
+    previousChapter={previousChapter}
+  />
+  {
+    entry === 'book' ? (
+      <ChapterList book={book} />
+    ) : (
+      <>
+        <VerseList verses={verses} />
+        <SurroundingChapters
+          nextChapter={nextChapter}
+          previousChapter={previousChapter}
+        />
+      </>
+    )
+  }
+</Layout>

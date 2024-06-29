@@ -1,25 +1,34 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from 'astro:content'
 
-import Layout from '../layouts/Layout.astro';
-import Pill from '../components/Pill.astro';
-import Newsletter from '../components/Newsletter';
+import Layout from '@/layouts/Layout.astro'
+import Pill from '@/components/Pill.astro'
+import Newsletter from '@/components/Newsletter'
+import { SeoValues } from '@/constants/seo'
 
-import { SeoValues } from '../constants/seo'
-
-const [books] = await getCollection('books');
+const [books] = await getCollection('books')
 
 console.log(books)
 ---
 
-<Layout title={SeoValues.title} description={SeoValues.description}>
-	<img src="/svg/novo-logo.svg" alt="La Biblia Online" class="size-12 block" />
-	<Pill text="Disponible en Septiembre 2024" />
-	<h1 class="text-5xl font-sans w-4/5 my-8 leading-tight">Lea la Biblia Sagrada desde su ordenador, movil o tablet.</h1>
-	<p class="sm:w-4/5 leading-relaxed">
-		Creemos que la Biblia es una historia unificada que nos lleva a Jesús y
-			nuestra misión es hacer que la historia bíblica sea accesible a todo el
-			mundo, en cualquier lugar y de forma gratuita.
-	</p>
-	<Newsletter />
+<Layout
+  title={SeoValues.title}
+  description={SeoValues.description}
+  showNav={false}
+>
+  <img
+    src="/svg/novo-logo.svg"
+    alt={SeoValues.siteName}
+    class="block size-12"
+  />
+  <Pill text="Disponible en Septiembre 2024" />
+  <h1 class="my-8 w-4/5 font-sans text-5xl leading-tight">
+    Lea la Biblia Sagrada desde su ordenador, movil o tablet.
+  </h1>
+  <p class="leading-relaxed sm:w-4/5">
+    Creemos que la Biblia es una historia unificada que nos lleva a Jesús y
+    nuestra misión es hacer que la historia bíblica sea accesible a todo el
+    mundo, en cualquier lugar y de forma gratuita.
+  </p>
+  <Newsletter />
 </Layout>

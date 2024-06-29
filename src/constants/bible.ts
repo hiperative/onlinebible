@@ -1,0 +1,2 @@
+export const OLD_TESTAMENT_BOOKS_COUNT = 39
+export const TOTAL_BOOKS_COUNT = 66
