@@ -11,8 +11,35 @@ interface Props {
 const { verse, text, comment } = Astro.props
 ---
 
-<p class="text-balance pb-4 leading-relaxed" data-id={verse}>
+<p class="text-balance pb-4 leading-relaxed group relative" data-id={verse}>
   <b class="mr-1 rounded py-2 align-super text-[10px] text-primary">{verse}</b>
   <span set:html={text} />
+  <!-- <span class="absolute bottom-0 left-0 w-full border-b-2 border-dashed border-primary opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100" /> -->
   <VerseReference comment={comment} client:idle />
 </p>
+
+<script>
+  import { extractVerse } from '@/lib/utils'
+
+  function highlightVerses() {
+    const versesIds = document.querySelectorAll('[data-id]')
+    const highlightedVerses = extractVerse(window.location.href)
+    let shouldScroll: boolean = true
+
+    versesIds.forEach(verse => {
+      if(highlightedVerses.includes(parseInt(verse.getAttribute('data-id')!))) {
+        verse.querySelector('& > span')?.classList.add('bg-primary', 'text-primary-foreground')
+        verse.querySelector('& > span')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
+
+      // if(shouldScroll) {
+      //   shouldScroll = false
+      //   verse.querySelector('& > span')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      // }
+    })
+  }
+
+  document.addEventListener("astro:after-swap", highlightVerses)
+
+  highlightVerses()
+</script>

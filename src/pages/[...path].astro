@@ -15,7 +15,7 @@ export async function getStaticPaths() {
   return await getPaths()
 }
 
-const { entry, book, verses, highlighted } = Astro.props
+const { entry, book, verses } = Astro.props
 const { path } = Astro.params
 
 const [_, chapterId] = path.split('/')
@@ -32,7 +32,7 @@ const metadata = getMetadata({
   verses,
 })
 
-console.log({ entry, path, chapterId })
+console.log({ entry, path, chapterId, url: Astro.url.search })
 ---
 
 <Layout
